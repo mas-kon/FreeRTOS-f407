@@ -1,0 +1,39 @@
+#include "stm32f4xx.h"
+#include "led_init.h"
+
+void LED_Init(void){
+	/* Enable GPIO */
+	RCC->AHB1ENR |= RCC_AHB1ENR_GPIODEN;
+	
+	/* Configure GPIOD12 as output, meduim speed, no pull-up, pull-down */
+	GPIOD->MODER 		&= 	~GPIO_MODER_MODER12_1;
+	GPIOD->MODER 		|= 	 GPIO_MODER_MODER12_0;
+	GPIOD->OTYPER		&= 	~GPIO_OTYPER_OT_12;
+	GPIOD->PUPDR 		&= 	~GPIO_PUPDR_PUPDR12;
+	GPIOD->OSPEEDR 	|= 	 GPIO_OSPEEDER_OSPEEDR12_0;
+	GPIOD->OSPEEDR 	&= 	~GPIO_OSPEEDER_OSPEEDR12_1;
+
+	/* Configure GPIOD13 as output, meduim speed, no pull-up, pull-down */
+	GPIOD->MODER 		&= 	~GPIO_MODER_MODER13_1;
+	GPIOD->MODER 		|= 	 GPIO_MODER_MODER13_0;
+	GPIOD->OTYPER		&= 	~GPIO_OTYPER_OT_13;
+	GPIOD->PUPDR 		&= 	~GPIO_PUPDR_PUPDR13;
+	GPIOD->OSPEEDR 	|= 	 GPIO_OSPEEDER_OSPEEDR13_0;
+	GPIOD->OSPEEDR 	&= 	~GPIO_OSPEEDER_OSPEEDR13_1;	
+
+	/* Configure GPIOD14 as output, meduim speed, no pull-up, pull-down */
+	GPIOD->MODER 		&= 	~GPIO_MODER_MODER14_1;
+	GPIOD->MODER 		|= 	 GPIO_MODER_MODER14_0;
+	GPIOD->OTYPER		&= 	~GPIO_OTYPER_OT_14;
+	GPIOD->PUPDR 		&= 	~GPIO_PUPDR_PUPDR14;
+	GPIOD->OSPEEDR 	|= 	 GPIO_OSPEEDER_OSPEEDR14_0;
+	GPIOD->OSPEEDR 	&= 	~GPIO_OSPEEDER_OSPEEDR14_1;	
+	
+	/* Configure GPIOD15 as output, meduim speed, no pull-up, pull-down */
+	GPIOD->MODER 		&= 	~GPIO_MODER_MODER15_1;
+	GPIOD->MODER 		|= 	 GPIO_MODER_MODER15_0;
+	GPIOD->OTYPER		&= 	~GPIO_OTYPER_OT_15;
+	GPIOD->PUPDR 		&= 	~GPIO_PUPDR_PUPDR15;
+	GPIOD->OSPEEDR 	|= 	 GPIO_OSPEEDER_OSPEEDR15_0;
+	GPIOD->OSPEEDR 	&= 	~GPIO_OSPEEDER_OSPEEDR15_1;		
+}
